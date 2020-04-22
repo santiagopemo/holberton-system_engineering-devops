@@ -18,5 +18,5 @@ The projects cover:
 3. [0x02-shell_redirections](./0x02-shell_redirections)
 4. [0x03-shell_variables_expansions](./0x03-shell_variables_expansions)
 
-## Author
-* Santiago Peña Mosquera
+## Author :pencil:
+**Santiago Peña Mosquera** - twitter [@Santiag11470161](https://twitter.com/Santiag11470161) - LinkedIn [Santiago Peña Mosquera](https://www.linkedin.com/in/santiago-pe%C3%B1a-mosquera-abaa20196/)
