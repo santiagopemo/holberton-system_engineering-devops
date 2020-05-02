@@ -49,7 +49,7 @@
 - [x] **[16. If only](./16-if_only)** - Write a script that changes the owner of the file hello to betty only if it is owned by the user guillaume.
 ### Advance :muscle:
 - [x] **[17. Star Wars](./100-Star_Wars)** - Write a script that will play the StarWars IV episode in the terminal.
-- [x] **[18. RTFM](./101-man_holberton)** - Create a man page that looks exactly like this one and passes all checks.
+- [ ] **[18. RTFM](./101-man_holberton)** - Create a man page that looks exactly like this one and passes all checks.
 
 ## Author :pencil:
 **Santiago Peña Mosquera** - twitter [@Santiag11470161](https://twitter.com/Santiag11470161) - LinkedIn [Santiago Peña Mosquera](https://www.linkedin.com/in/santiago-pe%C3%B1a-mosquera-abaa20196/)
