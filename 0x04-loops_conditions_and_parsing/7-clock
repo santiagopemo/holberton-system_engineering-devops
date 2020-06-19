@@ -2,15 +2,14 @@
 # Bash script that displays the time for 12 hours and 59 minutes
 m=1
 h=0
-while ((h<12))
+while ((h<13))
 do
-    if [ $m -eq 60 ]
-    then 
-        let h++
-        echo "Hour: $h"
-        (( m = 0 ))
-    else
+    echo "Hour: $h"
+    m=1
+    while ((m<60))
+    do
         echo "$m"
-    fi
-    let m++    
+        (( m++ ))
+    done
+    let h++    
 done
