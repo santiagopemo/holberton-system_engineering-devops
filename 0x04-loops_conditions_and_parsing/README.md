@@ -38,10 +38,10 @@
 - [x] **[6. Superstitious numbers](./)** - Write a Bash script that displays numbers from 1 to 20 and
 - [x] **[7. Clock](./)** - Write a Bash script that displays the time for 12 hours and 59 minutes
 ### Advance :muscle:
-- [x] **[](./)** - Description
-- [x] **[](./)** - Description
-- [x] **[](./)** - Description
-- [x] **[](./)** - Description
+- [x] **[11. Read and cut](./100-read_and_cut)** - Write a Bash script that displays the content of the file /etc/passwd
+- [x] **[12. Tell the story of passwd](./101-tell_the_story_of_passwd)** - Write a Bash script that displays the content of the file /etc/passwd, using the while loop + IFS
+- [x] **[13. Let's parse Apache logs](./102-lets_parse_apache_logs)** - Write a Bash script that displays the visitor IP along with the HTTP status code from the Apache log file
+- [x] **[14. Dig the data](./103-dig_the-data)** - write a Bash script that groups visitors by IP and HTTP status code, and displays this data
 
 ## Author :pencil:
 **Santiago Peña Mosquera** - twitter [@Santiag11470161](https://twitter.com/Santiag11470161) - LinkedIn [Santiago Peña Mosquera](https://www.linkedin.com/in/santiago-pe%C3%B1a-mosquera-abaa20196/)
