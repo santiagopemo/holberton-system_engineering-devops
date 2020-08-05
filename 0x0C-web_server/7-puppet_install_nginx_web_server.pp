@@ -1,8 +1,13 @@
 # Install Nginx web server (w/ Puppet)
+package { 'nginx':
+  ensure => installed,
+  name   => 'nginx',
+}
+
 service { 'nginx':
   ensure => running,
   enable => true,
-}
+  name => 'nginx'}
 
 file { '/var/www/html/index.html':
   ensure  => file,
