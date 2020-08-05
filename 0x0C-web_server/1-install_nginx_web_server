@@ -3,5 +3,5 @@
 # and serving HTML pages, let’s install one!
 apt-get -y update
 apt-get -y install nginx
-echo "Holberton School" > /usr/share/nginx/html/index.html
+echo "Holberton School" > /var/www/html/index.nginx-debian.html
 service nginx start
