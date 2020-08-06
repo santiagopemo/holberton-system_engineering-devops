@@ -18,6 +18,7 @@ file_line { 'redirect':
 }
 
 service { 'nginx listaning':
-  ensure  => running,
-  require => Package['nginx'],
+  ensure     => running,
+  require    => Package['nginx'],
+  hasrestart => true,
 }
