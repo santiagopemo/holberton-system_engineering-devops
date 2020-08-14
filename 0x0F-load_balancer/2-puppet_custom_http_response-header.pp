@@ -1,14 +1,13 @@
 # Write 2-puppet_custom_http_response-header.pp so that it configures a brand new Ubuntu machine to the requirements asked in task 0
 
 exec { 'update':
-  command => 'sudo apt-get update -y',
+  command => 'sudo apt-get update',
   path    => ['/usr/bin', '/bin'],
 }
 
 package { 'nginx':
-  ensure   => installed,
-  name     => 'nginx'
-  required => Exec['update'],
+  ensure  => installed,
+  require => Exec['update'],
 }
 
 file_line { 'custom_header':
@@ -19,8 +18,7 @@ file_line { 'custom_header':
   require => Package['nginx'],
 }
 
-exec { 'restart_nginx':
-  command => 'sudo service nginx restart',
-  path    => ['/usr/bin', '/bin'],
-  require => Package['custom_header'],
+service { 'nginx':
+  ensure  => running,
+  require => File_line['custom_header'],
 }
