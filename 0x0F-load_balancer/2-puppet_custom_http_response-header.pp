@@ -18,7 +18,8 @@ file_line { 'custom_header':
   require => Package['nginx'],
 }
 
-service { 'nginx':
-  ensure  => running,
+exec { 'restart':
+  command => 'sudo service nginx restart',
+  path    => ['/usr/bin', '/bin'],
   require => File_line['custom_header'],
 }
