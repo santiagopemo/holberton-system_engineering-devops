@@ -1,24 +1,22 @@
 # Install Nginx web server (w/ Puppet)
-package { 'nginx installed':
-  ensure => installed,
-  name   => 'nginx'
+exec { 'Install Nginx':
+  command => 'sudo apt-get install nginx -y',
+  path    => ['/usr/bin', '/bin'],
 }
 
 file { '/var/www/html/index.html':
-  ensure  => present,
-  path    => '/var/www/html/index.html',
-  content => 'Holberton School'
+  content => 'Holberton School',
 }
 
-file_line { 'redirection':
-  ensure => present,
-  path   => '/etc/nginx/sites-available/default',
-  after  => 'listen 80 default_server;',
-  line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;'
+file_line { 'title':
+  ensure   => present,
+  path     => '/etc/nginx/sites-available/default',
+  after    => 'server_name',
+  line     => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
+  multiple => true
 }
 
-service { 'nginx':
-  ensure     => running,
-  require    => Package['nginx'],
-  hasrestart => true
+exec { 'Restarting_Nginx':
+  command => 'sudo service nginx restart',
+  path    => ['/usr/bin', '/bin', '/usr/sbin'],
 }
