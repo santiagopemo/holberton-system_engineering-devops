@@ -16,7 +16,14 @@ file_line { 'title':
   multiple => true
 }
 
-exec { 'Restarting_Nginx':
-  command => 'sudo service nginx restart',
+exec { 'Stop Nginx':
+  require => Exec['Install Nginx'],
+  command => 'sudo service nginx stop',
+  path    => ['/usr/bin', '/bin', '/usr/sbin'],
+}
+
+exec { 'Start Nginx':
+  require => Exec['Stop Nginx'],
+  command => 'sudo service nginx start',
   path    => ['/usr/bin', '/bin', '/usr/sbin'],
 }
