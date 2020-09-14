@@ -9,7 +9,6 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    # employee_id = argv[1]
     api_url = 'https://jsonplaceholder.typicode.com'
     users_url = '{}/users'.format(api_url)
     r_users = requests.get(users_url).json()
