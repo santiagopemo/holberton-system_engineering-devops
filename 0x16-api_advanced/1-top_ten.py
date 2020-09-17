@@ -13,8 +13,8 @@ def top_ten(subreddit):
     headers = {"User-Agent": "santiagopemo"}
     response = requests.get(url, headers=headers).json()
     hot_posts = response.get('data', {}).get('children', None)
-    if hot_posts == None:
+    if hot_posts is None:
         print("None")
     else:
-        for post in hot_posts:         
+        for post in hot_posts:
             print(post.get('data').get('title'))
