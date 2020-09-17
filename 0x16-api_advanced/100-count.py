@@ -4,7 +4,7 @@ import requests
 from sys import argv
 
 
-def count_words(subreddit, word_list, hot_list=[], words_dict={}):
+def count_words(subreddit, word_list, after="", words_dict={}):
     """
     Recursive function that queries the Reddit API, parses
     the title of all hot articles, and prints a sorted count
@@ -12,10 +12,6 @@ def count_words(subreddit, word_list, hot_list=[], words_dict={}):
     """
     if words_dict == {}:
         words_dict = dict.fromkeys(word_list, 0)
-    if hot_list == []:
-        after = ""
-    else:
-        after = hot_list[-1].get('data').get("name")
     url = 'https://www.reddit.com/r/{}/hot.json?after={}'.format(subreddit,
                                                                  after)
     headers = {"User-Agent": "santiagopemo"}
@@ -35,4 +31,5 @@ def count_words(subreddit, word_list, hot_list=[], words_dict={}):
             if value != 0:
                 print('{}: {}'.format(word, value))
         return
-    return count_words(subreddit, word_list, hot_list, words_dict)
+    after = response.get('data').get('after')
+    return count_words(subreddit, word_list, after, words_dict)
