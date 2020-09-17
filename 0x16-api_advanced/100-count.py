@@ -13,7 +13,7 @@ def count_words(subreddit, word_list, hot_list=[], words_dict={}):
     if words_dict == {}:
         words_dict = dict.fromkeys(word_list, 0)
     if hot_list == []:
-        after = "null"
+        after = ""
     else:
         after = hot_list[-1].get('data').get("name")
     url = 'https://www.reddit.com/r/{}/hot.json?after={}'.format(subreddit,
@@ -25,11 +25,9 @@ def count_words(subreddit, word_list, hot_list=[], words_dict={}):
     response = response.json()
     hot_list = response.get('data', {}).get('children', None)
     for post in hot_list:
-        title = post.get('data').get('title').split()
+        title = post.get('data').get('title').lower().split()
         for word in word_list:
-            for title_word in title:
-                if word.lower() == title_word.lower():
-                    words_dict[word] += 1
+            words_dict[word] += title.count(word.lower())
     if response.get('data').get('after') is None:
         sort_value = sorted(words_dict.items(), key=lambda i: i[::-1])
         sort_alpha = sorted(sort_value, key=lambda i: i[1], reverse=True)
