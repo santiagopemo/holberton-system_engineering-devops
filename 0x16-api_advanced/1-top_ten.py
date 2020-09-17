@@ -11,7 +11,7 @@ def top_ten(subreddit):
     """
     url = 'https://www.reddit.com/r/{}/hot.json?limit=10'.format(subreddit)
     headers = {"User-Agent": "santiagopemo"}
-    response = requests.get(url, headers=headers).json()
+    response = requests.get(url, headers=headers, allow_redirects=False).json()
     hot_posts = response.get('data', {}).get('children', None)
     if hot_posts is None:
         print("None")
