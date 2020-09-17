@@ -24,12 +24,12 @@ def count_words(subreddit, word_list, after="", words_dict={}):
         title = post.get('data').get('title').lower().split()
         for word in word_list:
             words_dict[word] += title.count(word.lower())
-    if response.get('data').get('after') is None:
+    after = response.get('data').get('after')
+    if after is None:
         sort_value = sorted(words_dict.items(), key=lambda i: i[::-1])
         sort_alpha = sorted(sort_value, key=lambda i: i[1], reverse=True)
         for word, value in sort_alpha:
             if value != 0:
                 print('{}: {}'.format(word, value))
         return
-    after = response.get('data').get('after')
     return count_words(subreddit, word_list, after, words_dict)
