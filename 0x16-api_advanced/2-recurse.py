@@ -21,8 +21,7 @@ def recurse(subreddit, hot_list=[]):
     if hot_posts is None:
         return None
     else:
-        for post in hot_posts:
-            hot_list.append(post)
+        hot_list.extend(hot_posts)
     if response.get('data').get('after') is None:
         return hot_list
     return recurse(subreddit, hot_list)
