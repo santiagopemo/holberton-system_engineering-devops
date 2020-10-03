@@ -12,7 +12,7 @@ On September 29, 2020, From 11:00 AM to 11:25 AM GMT-5, requests to the WordPres
 - At 11:25 AM: The devops engineer wrote a puppet manifest to automate the error fixing.
 - At 11:30 AM: The devops engineer sent a message to the developer encharge of building the web site to warn him about his mistake.
 - At 11:32 AM: The devops engineer recive a photo from the developer encharge of building the web site.  
-![kitten](https://funnypics.photosandpictures.net/main.php?g2_view=core.DownloadItem&g2_itemId=6761&g2_serialNumber=1)
+![](https://funnypics.photosandpictures.net/main.php?g2_view=core.DownloadItem&g2_itemId=6761&g2_serialNumber=1)
 
 ## Root cause and resolution
 The root cause was a typographic error in the file `/var/www/html/wp-settings.php`, the developer encharge of building the web site, added a `p`in the line `require_once( ABSPATH . WPINC . '/class-wp-locale.phpp' );` to the extension (`.phpp`) of the require file `/class-wp-locale.php`. Due the `class-wp-locale.phpp` file does not exist, when the system tried to check its status and open it, an `ENOENT` (No such file or directory) error was raising, causing an internal error in the Apache2 server, affecting the 100% of the traffic to this infrastructure. The solution was simply to delete the extra `p`, and generate a puppet manifest to automate the solution of this typographic error.
