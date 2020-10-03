@@ -11,7 +11,7 @@ On September 29, 2020, From 11:00 AM to 11:25 AM GMT-5, requests to the WordPres
 - At 11:22 AM: The devops engineer sent a `GET` request again to the server, receiving status code `200 OK` response.
 - At 11:25 AM: The devops engineer wrote a puppet manifest to automate the error fixing.
 - At 11:30 AM: The devops engineer sent a message to the developer encharge of building the web site to warn him about his mistake.
-- At 11:32 AM: The devops engineer recive a photo from the developer encharge of building the web site: 
+- At 11:32 AM: The devops engineer recive a photo and a voice message from the developer encharge of building the web site: 
   
 ![](https://funnypics.photosandpictures.net/main.php?g2_view=core.DownloadItem&g2_itemId=6761&g2_serialNumber=1)  
 Apparently, when the developer was in the bathroom, his cat took advantage of and modified several of the files he was working on, in retaliation for not having petted him all day. Although he was able to correct most of the files, `wp-settings.php` was missing.  
