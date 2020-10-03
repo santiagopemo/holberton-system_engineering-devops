@@ -20,9 +20,10 @@ It seems that, when the developer was in the bathroom, his cat took advantage of
 The root cause was a typographic error in the file `/var/www/html/wp-settings.php`, the developer´s kitten, added a `p`in the line `require_once( ABSPATH . WPINC . '/class-wp-locale.phpp' );` to the extension (`.phpp`) of the require file `/class-wp-locale.php`. Due the `class-wp-locale.phpp` file does not exist, when the system tried to check its status and open it, an `ENOENT` (No such file or directory) error was raising, causing an internal error in the Apache2 server, affecting the 100% of the traffic to this infrastructure. The solution was simply to delete the extra `p`, and generate a puppet manifest to automate the solution of this typographic error.
 
 ## Corrective and preventative measures
-This type of problem can be prevented, using a server only for development, and/or another for testing in which all the necessary tests can be carried out, prior to deployment. It is also important to implement a quality control department, which allocates at least 30% of the project development time for testing, to ensure that the software can perform everything expected correctly, even when the functionality to be validated is already for more known, since each project has variables that make them different.  
+This type of problem can be prevented, using a server only for development, and/or another for testing in which all the necessary tests can be carried out, prior to deployment.  
+It is also important to implement a quality control department, which allocates at least 30% of the project development time for testing, to ensure that the software can perform everything expected correctly, even when the functionality to be validated is already for more known, since each project has variables that make them different. 
 Quality assurance is a primary stage in a software develpment project, since at this stage it is possible to validate all the break points and crucial points in the operation of a given business and towards which the software is directed.  
-and of course if you have a pet, be sure to pet it, and don't write your passwords in front of them.
+And of course if you have a pet, be sure to pet it, and don't write your passwords in front of them.
 
 
 
