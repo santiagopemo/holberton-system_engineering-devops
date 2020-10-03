@@ -21,7 +21,7 @@ The root cause was a typographic error in the file `/var/www/html/wp-settings.ph
 
 ## Corrective and preventative measures
 This type of problem can be prevented, using a server only for development, and/or another for testing in which all the necessary tests can be carried out, prior to deployment.  
-It is also important to implement a quality control department, which allocates at least 30% of the project development time for testing, to ensure that the software can perform everything expected correctly, even when the functionality to be validated is already for more known, since each project has variables that make them different. 
+It is also important to implement a quality control department, which allocates at least 30% of the project development time for testing, to ensure that the software can perform everything expected correctly, even when the functionality to be validated is already for more known, since each project has variables that make them different.   
 Quality assurance is a primary stage in a software develpment project, since at this stage it is possible to validate all the break points and crucial points in the operation of a given business and towards which the software is directed.  
 And of course if you have a pet, be sure to pet it, and don't write your passwords in front of them.
 
