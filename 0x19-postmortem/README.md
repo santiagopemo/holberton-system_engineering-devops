@@ -1,6 +1,6 @@
 # 0x19. Postmortem
 ## Issue Summary
-On September 29, 2020, From 11:00 AM to 11:25 AM GMT-5, requests to the WordPress made web page resulted in `500 Internal Server Error` response messages. The issue affected 100% of traffic to this web site infrastructure. The root cause of this outage was a typographic error in the file `wp-settings.php`, for unknown reasons, the engineer in charge of developing the page entered an extra `p`.
+On September 29, 2020, From 11:00 AM to 11:25 AM GMT-5, requests to the WordPress made web page resulted in `500 Internal Server Error` response messages. The issue affected 100% of traffic to this web site infrastructure. The root cause of this outage was a typographic error in the file `wp-settings.php`, for unknown reasons, the developer in charge of the web page entered an extra `p`.
 ## Timeline 
 - At 11:00 AM: The devops engineer sent a `GET` request to the server, receiving status code `500 Internal Server Error` response.
 - At 11:05 AM: The devops engineer checked for all running processes on server with `ps -auxf`. finding a MySql and an Apache2 servers.
