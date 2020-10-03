@@ -1,6 +1,6 @@
 # 0x19. Postmortem
 ## Issue Summary
-On September 29, 2020, From 11:00 AM to 11:25 AM GMT-5, requests to the WordPress made web page resulted in `500 Internal Server Error` response messages. The issue affected 100% of traffic to this web site infrastructure. The root cause of this outage was a typographic error in the file `wp-settings.php`.
+On September 29, 2020, From 11:00 AM to 11:25 AM GMT-5, requests to the WordPress made web page resulted in `500 Internal Server Error` response messages. The issue affected 100% of traffic to this web site infrastructure. The root cause of this outage was a typographic error in the file `wp-settings.php`, for unknown reasons, the engineer in charge of developing the page entered an extra `p`.
 ## Timeline 
 - At 11:00 AM: The devops engineer sent a `GET` request to the server, receiving status code `500 Internal Server Error` response.
 - At 11:05 AM: The devops engineer checked for all running processes on server with `ps -auxf`. finding a MySql and an Apache2 servers.
@@ -10,6 +10,9 @@ On September 29, 2020, From 11:00 AM to 11:25 AM GMT-5, requests to the WordPres
 - At 11:20 AM: The devops engineer found and fixed the typographic error, errasing the `p` at the end of `class-wp-locale.phpp`, inside the file `/var/www/html/wp-settings.php`.
 - At 11:22 AM: The devops engineer sent a `GET` request again to the server, receiving status code `200 OK` response.
 - At 11:25 AM: The devops engineer wrote a puppet manifest to automate the error fixing.
+- At 11:30 AM: The devops engineer sent a message to the developer encharge of building the web site to warn him about his mistake.
+- At 11:32 AM: The devops engineer recive a photo from the developer encharge of building the web site.  
+![](https://www.google.com/url?sa=i&url=https%3A%2F%2Ffunnypics.photosandpictures.net%2Fv%2Ffunny-cats%2Ffunny%2Bimage%2Bof%2Ba%2Bkitten%2Busing%2Bthe%2Bcomputer.jpg.html&psig=AOvVaw18WyHXo1UVkjYrka8cVhg_&ust=1601775604441000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKizi6Gll-wCFQAAAAAdAAAAABAI)
 
 ## Root cause and resolution
 The root cause was a typographic error in the file `/var/www/html/wp-settings.php`, the developer encharge of building the web site, added a `p`in the line `require_once( ABSPATH . WPINC . '/class-wp-locale.phpp' );` to the extension (`.phpp`) of the require file `/class-wp-locale.php`. Due the `class-wp-locale.phpp` file does not exist, when the system tried to check its status and open it, an `ENOENT` (No such file or directory) error was raising, causing an internal error in the Apache2 server, affecting the 100% of the traffic to this infrastructure. The solution was simply to delete the extra `p`, and generate a puppet manifest to automate the solution of this typographic error.
