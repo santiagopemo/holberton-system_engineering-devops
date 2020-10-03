@@ -14,7 +14,7 @@ On September 29, 2020, From 11:00 AM to 11:25 AM GMT-5, requests to the WordPres
 - At 11:32 AM: The devops engineer recive a photo from the developer encharge of building the web site: 
   
 ![](https://funnypics.photosandpictures.net/main.php?g2_view=core.DownloadItem&g2_itemId=6761&g2_serialNumber=1)  
-It seems that, when the developer was in the bathroom, his cat took advantage of and modified several of the files he was working on, in retaliation for not having petted him all day. Although he was able to correct most of the files, `wp-settings.php` was missing.  
+Apparently, when the developer was in the bathroom, his cat took advantage of and modified several of the files he was working on, in retaliation for not having petted him all day. Although he was able to correct most of the files, `wp-settings.php` was missing.  
 
 ## Root cause and resolution
 The root cause was a typographic error in the file `/var/www/html/wp-settings.php`, the developer´s kitten, added a `p`in the line `require_once( ABSPATH . WPINC . '/class-wp-locale.phpp' );` to the extension (`.phpp`) of the require file `/class-wp-locale.php`. Due the `class-wp-locale.phpp` file does not exist, when the system tried to check its status and open it, an `ENOENT` (No such file or directory) error was raising, causing an internal error in the Apache2 server, affecting the 100% of the traffic to this infrastructure. The solution was simply to delete the extra `p`, and generate a puppet manifest to automate the solution of this typographic error.
