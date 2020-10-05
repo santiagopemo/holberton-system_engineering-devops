@@ -4,7 +4,7 @@ exec { 'increase-ULIMIT':
   path    => ['/bin']
 }
 exec { 'restart-nginx':
-  command => 'service nginx restart',
-  prvider => shell,
-  require => Exec['increase-ULIMIT']
+  command  => 'service nginx restart',
+  provider => shell,
+  require  => Exec['increase-ULIMIT']
 }
