@@ -5,6 +5,6 @@ exec { 'increase-ULIMIT':
 }
 exec { 'restart-nginx':
   command => 'service nginx restart',
-  path    => ['/usr/sbin'],
+  path    => ['/usr/local/sbin', '/usr/sbin', 'sbin'],
   require => Exec['increase-ULIMIT']
 }
